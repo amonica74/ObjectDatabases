@@ -93,7 +93,7 @@ The system supports Dynamic Collections based on QuerybyExample;  these collecti
 + _myoodbms.utils_ –  general utils for the project
 + _serverapp_ - wrapper classes automatically generated from templates. 
 These classes inherit from _myoodbms.dbclasses.BaseDBClass_ and wrap the functions needed to provide persistence. They have to used by the developer in their applications.
-+ _myoodbms.Test_ – contains classes to test the project. The main 2 classes are _TestApp_, that creates some objects saving them in the db, retrieves them, sets some attributes values and executes some methods, and _TestQuery_, that tests the query mechanism and contains several examples about the different possibilities offered by the Query Language of the system.
++ _test_ – contains classes to test the project. The main 2 classes are _TestApp_, that creates some objects saving them in the db, retrieves them, sets some attributes values and executes some methods, and _TestQuery_, that tests the query mechanism and contains several examples about the different possibilities offered by the Query Language of the system.
 
 
 <h2>External Libraries</h2> 
