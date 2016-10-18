@@ -16,7 +16,7 @@ public class PrintRequest extends BaseDBClass{
 	    	instance = new Instance(Schema.types.get(this.getClass().getSimpleName()));
 	}
 
-	//uso quando tiro fuori con una query
+	//used when retrieving the object with a query
 	public PrintRequest(Instance instance){
 		
 		this.instance=instance;
@@ -109,7 +109,7 @@ public class PrintRequest extends BaseDBClass{
 		return (myoodbms.template.Request.statusenum)this.instance.executeMethod("printActivityReport");
 	}
 
-	//nota!!!, i parametri devono essere messi nell'ArrayList nello stesso ordine della signature
+	//note!!!, the parameters must be inserted in the ArrayList in the same order of the signature
 	public boolean printDocument(String document){		
 		ArrayList<Object> pars = new ArrayList<Object>();
 		pars.add(document);

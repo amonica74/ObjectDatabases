@@ -16,7 +16,7 @@ public class GenerateRequest extends BaseDBClass{
 	    	instance = new Instance(Schema.types.get(this.getClass().getSimpleName()));
 	}
 
-	//uso quando tiro fuori con una query
+	//used when I retireve the object with a query
 	public GenerateRequest(Instance instance){
 		
 		this.instance=instance;

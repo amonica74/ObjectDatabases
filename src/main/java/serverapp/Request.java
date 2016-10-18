@@ -14,7 +14,7 @@ public class Request extends BaseDBClass{
 	    	instance = new Instance(Schema.types.get(this.getClass().getSimpleName()));
 	}
 
-	//uso quando tiro fuori con una query
+	//used when retrieving the object with a query
 	public Request(Instance instance){
 		
 		this.instance=instance;

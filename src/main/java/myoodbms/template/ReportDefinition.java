@@ -29,10 +29,6 @@ public class ReportDefinition {
 	ArrayList<String> supportedoutputtypes;
 	boolean showInLauncher;
 	
-	//????? ma se voglio una relationship con ReportDatasource che pero' è tipo una hashmap,
-	//????? cioè per as400 una cosa, per mysql un'altra, come faccio???$
-	//a si a ok ma l'attributo database che discrimina è dentro alla DATASOURCE class chiaro!!!!
-	//FARE!!!!
 	
 	Set<ReportDatasource> sources;
 	

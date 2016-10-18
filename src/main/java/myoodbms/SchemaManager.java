@@ -20,7 +20,6 @@ import com.db4o.query.*;
 import org.eclipse.jdt.core.*;
 
 
-//PROVARE SCHEMA EVOLUTION !!!!!!! cancellare attribute in iNSTANCE
 public class SchemaManager {
 	
 
@@ -48,18 +47,15 @@ public class SchemaManager {
 	} //delete all the Types
 
 	
+	//load the schema for all the classes in the template package
 	public void loadSchema(){
 		
 
-		Schema.types = new HashMap<String, Type>();//FARE NEW GLOBALS DA UN'ALTRA PARTE
+		Schema.types = new HashMap<String, Type>();
 		
 		result = DBManager.db.queryByExample(Type.class);
 		
-		System.out.println("----------------------3");
-		
-		//va ripetuto per tutte le classi
-		//andrebbe fatto dinamico per tutte le classi che sono nel package
-		//myoodbms.template --> sostituire Request.class con class dinamica di volta in volta estratta
+	
 		//***************************
 		
 		loadType(Request.class);
@@ -73,13 +69,17 @@ public class SchemaManager {
 		
 	}
 	
+	
 	private void loadType(Class<?> schemaClass){
 		
 		try{
 		Type requestType = result.stream().filter(p -> p.typename.equals(schemaClass.getSimpleName())).findAny().orElse(null);
 
+		/*check if the definition of the class is already in the db.
+		 if not, it creates it, if so, it check the version to understand
+		 if it has to perform some updates*/
 		if(requestType == null){			
-			requestType= createType(schemaClass); // creo leggendo il template e poi restituisco Type e lo storo
+			requestType= createType(schemaClass); 
 			DBManager.db.store(requestType);			
 		}else{
 			if(requestType.Version != schemaClass.getAnnotation(Version.class).number()){

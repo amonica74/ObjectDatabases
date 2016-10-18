@@ -38,20 +38,12 @@ public class Parser {
 
 			
 			 public boolean visit(MethodDeclaration node){
-		            //System.out.println("Declaration of '"+node.getName()+"' at line"
-		                    //+ cu.getLineNumber(node.getStartPosition()));
-		            
-		            //System.out.println("The body is: " + node.getBody().toString());
 		            
 		            String pars = node.parameters().toString().replace("[", "(").replace("]", ")");
 		            
 		            bodys.put(node.getName().toString()+pars, node.getBody().toString());
-		            
-		            
-		            //System.out.println("Pars: " + node.parameters().toString().replace("[", "(").replace("]", ")"));
-		            
 		           
-		                return true;
+		            return true;
 			 }
 		});
  
@@ -81,12 +73,13 @@ public class Parser {
 		bodys.clear();
 		
 		File dirs = new File(".");
-		String dirPath = dirs.getCanonicalPath() + File.separator+"src"+File.separator+"myoodbms"+ File.separator+"template"+File.separator;
+		//String dirPath = dirs.getCanonicalPath() + File.separator+"src"+File.separator+"myoodbms"+ File.separator+"template"+File.separator;
+		String dirPath = dirs.getCanonicalPath() + File.separator+"src"+File.separator+"main"+File.separator+"java"+File.separator+"myoodbms"+ File.separator+"template"+File.separator;
+
 		String filePath= dirPath + classtoparse.getSimpleName() +".java";
 		
 		System.out.println(filePath);
 
-		//String filePath="/Users/ale/workspace/objectdatabases/objectdatabases/src/myoodbms/template/Request.java";
 		parse(readFileToString(filePath));
 
 	}

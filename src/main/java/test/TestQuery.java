@@ -35,12 +35,10 @@ public class TestQuery {
 	try{
 		DBManager.openDB();
 		
-		System.out.println("----------------------1");
-		
         SchemaManager sm = new SchemaManager();
 			
 		sm.loadSchema();
-		System.out.println("----------------------2");
+
 		
 		Query ql = new Query();
 		
@@ -52,8 +50,7 @@ public class TestQuery {
 		
 		//for(Request req : reqlist)
 			//req.printActivityReport();
-		
-		
+			
 		
 		/* Query by example with attributes in AND and in OR*/
 		GenerateRequest gentoret= new GenerateRequest();
@@ -108,8 +105,7 @@ public class TestQuery {
 		List<GenerateRequest> genlist6 = ql.queryByExample(gentoret5);
 		
 		
-		
-		/*Requests that don't have any ReportDefinition*/
+		/*Requests that don't have any ReportDefinition as related object*/
 		GenerateRequest gentoret8= new GenerateRequest();
 		
 		gentoret8.setReportDefinition(null);
@@ -118,7 +114,7 @@ public class TestQuery {
 		List<GenerateRequest> genlist8 = ql.queryByExample(gentoret8);
 		
 		
-		/* MULTIVALUE ATTRIBUTES with contains */
+		/* MULTIVALUE ATTRIBUTES with Contains */
 		ReportDefinition repdef= new ReportDefinition();
 		repdef.setSupportedOutputTypes(new Contains("WORD"));
 		
@@ -142,7 +138,7 @@ public class TestQuery {
 		List<ReportDatasource> repdslist = ql.queryByExample(ds);
 		
 		
-		/* Test with integer <4 with Range */
+		/* Test with integer < 4 with Range */
 		PrintRequest printreq= new PrintRequest();
 		printreq.setNumCopies(new Range(null,4));
 		
@@ -172,11 +168,12 @@ public class TestQuery {
 	
 	DynamicCollectionQbE<GenerateRequest> authcoll2 = new DynamicCollectionQbE<GenerateRequest>(gentoret10);
 	
-	//INTERSECT coll
-	//DynamicCollectionQbE<GenerateRequest> authcoll3 = authcoll.Intersect(authcoll2);
-	//UNION coll
-	DynamicCollectionQbE<GenerateRequest> authcoll3 = authcoll.Union(authcoll2);
+	//INTERSECT of 2 collection
+	DynamicCollectionQbE<GenerateRequest> authcoll3 = authcoll.Intersect(authcoll2);
+	//UNION of 2 collections
+	DynamicCollectionQbE<GenerateRequest> authcoll4 = authcoll.Union(authcoll2);
 
+	//print some attributes of the retrieved objects
 	GenerateRequest reqfound2;
 Iterator<GenerateRequest> myit2= authcoll3.iterator();
 while(myit2.hasNext()){
@@ -184,9 +181,7 @@ while(myit2.hasNext()){
 	System.out.println(reqfound2.getFilename() + "  "+reqfound2.getLanguage());
 }
 
-		
-		int a= 5;
-		a+=1;
+	
 		
 	}catch(Exception ex){
 		System.out.println(ex);

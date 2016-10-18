@@ -24,7 +24,6 @@ public abstract class BaseDBClass {
 		
 		if(instance.type.Version != instance.Version){
 			updateAttributes();
-			//da fare updateRelationships
 		}
 		
 	}
@@ -43,6 +42,7 @@ public abstract class BaseDBClass {
 	}
 	
 	
+	//to maintain referential integrity
 	private void removeMeFromRelationship(){		
 		for (Relationship rel : instance.type.getRelationships().values()){			
 			ObjectSet<Instance> result = DBManager.db.queryByExample(Instance.class);
@@ -67,6 +67,8 @@ public abstract class BaseDBClass {
 		}
 	}
 	
+	
+	//update attributes of instances every time they are retrieved
 	private void updateAttributes(){
 			
 		String key;

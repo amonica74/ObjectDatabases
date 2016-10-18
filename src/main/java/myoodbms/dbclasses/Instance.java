@@ -10,6 +10,8 @@ import bsh.Interpreter;
 
 import myoodbms.querylanguage.operators.ComparisonObject;
 
+
+//class used to save instances of objects
 public class Instance {
 	
 	HashMap<String, Object> attributes;
@@ -153,7 +155,7 @@ public class Instance {
 			
 		}
 		
-		//Integrity check (vedere nome giusto)
+		//referential integrity check
 		if(performIntegrity && ex==false)
 			relobject.removeRelatedObject(rel.inverseRelation, this, false);
 	}
@@ -188,11 +190,10 @@ public class Instance {
 				//replacing objects coming from relationships (only ONETOMANY-ONETOONE)
 				for (HashMap.Entry<String, Relationship> entry : this.type.getRelationships().entrySet()) {
 					if(entry.getValue().relType== RelationType.ONETOMANY || entry.getValue().relType== RelationType.ONETOONE) {//OR ONETOONE FARE!!!! x tutte le relationships
-						//nel metodo c'è nomerelationship.attributo
 						Instance related = (Instance)this.relationships.get(entry.getKey());
 						if (related != null){
 							for (HashMap.Entry<String, Object> att : related.attributes.entrySet()) {
-								interp.set(entry.getKey()+"."+att.getKey(), att.getValue()); //relatedreport.name lo metto al valore dell'attributo name dell'oggetto collegato
+								interp.set(entry.getKey()+"."+att.getKey(), att.getValue()); 
 							}
 						}
 					}else{ //MANYTOONE, MANYTOMANY

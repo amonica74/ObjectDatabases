@@ -26,7 +26,9 @@ public class QueryHelper {
 			att3.putAll(att2);
 			
 			newobjforquery= cls.newInstance();
-			if(att1.size() + att2.size() == att3.size()) //if same attribute is in both obj but with different values, intersect is empty, so attributes of intersect must remain empty
+			//if same attribute is in both objects but with different values, 
+			//intersect is empty, so intersect attributes must remain empty
+			if(att1.size() + att2.size() == att3.size()) 
 				newobjforquery.instance.setAttributes(att3);
 			
 		}catch(Exception ex){}

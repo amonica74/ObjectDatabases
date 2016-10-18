@@ -20,11 +20,6 @@ import myoodbms.dbclasses.Instance;
 import myoodbms.dbclasses.Type;
 
 
-//FARE AGGIORNAMENTO ATTRIBUTI
-//DELETE ADD OBJECT IN MANYTOMANY
-//ESECUZIONE METODO IN MANY TO MANY
-//ESECUZIONE DI TUTTI I METODI
-//DELETE DATASOURCE E VEDERE SE LO CANCELLA DA RELATIONSHIP
 
 public class TestApp {
 	
@@ -57,7 +52,7 @@ public class TestApp {
 		repdef.store();
 		*/
 		
-		//REPORT DEFINITION CREATION2
+		//REPORT DEFINITION CREATION - second object
 		
 		/*
 		ReportDefinition repdef2= new ReportDefinition();
@@ -95,7 +90,7 @@ public class TestApp {
 		*/
 		
 		
-		/*GENERATE REQUEST 2 CREATION
+		/*GENERATE REQUEST CREATION - second object
 		LocalTime now2 = LocalTime.now();
 		HashMap<String, String> pars2 = new HashMap<String, String>();
 		pars2.put("deckey", "880");
@@ -114,7 +109,7 @@ public class TestApp {
 		genreq2.store();
 		*/
 		
-		/* GENERATE REQUEST CREATION - 3
+		/* GENERATE REQUEST CREATION - third object
 		LocalTime now3 = LocalTime.now();
 		HashMap<String, String> pars3 = new HashMap<String, String>();
 		pars3.put("startdatum", "12.04.2016");
@@ -133,7 +128,7 @@ public class TestApp {
 		*/
 		
 		
-		/*GENERATE REQUEST 2 CREATION -4
+		/*GENERATE REQUEST 2 CREATION - fourth object
 		LocalTime now4 = LocalTime.now();
 		HashMap<String, String> pars4 = new HashMap<String, String>();
 		pars4.put("deckey", "111");
@@ -153,7 +148,7 @@ public class TestApp {
 		*/
 		
 		
-		/*GENERATE REQUEST 2 CREATION -5
+		/*GENERATE REQUEST 2 CREATION - fifth object
 		LocalTime now5 = LocalTime.now();
 		HashMap<String, String> pars5 = new HashMap<String, String>();
 		pars5.put("deckey", "456");
@@ -197,7 +192,7 @@ public class TestApp {
 		ds.store();*/
 		
 		
-		/*REPORT DATSOURCE CREATION		
+		/*REPORT DATSOURCE CREATION	- second object
 		ReportDatasource ds2 = new ReportDatasource();
 		ds2.setConnectionString("jdbc:mysql:$0");
 		ds2.setUsername("pippo");
@@ -205,7 +200,8 @@ public class TestApp {
 		
 		ds2.store();*/
 		
-		/*
+		// set related objects
+		/* 
 		repdef.setReportDatasource(ds);
 		repdef.setReportDatasource(ds2);
 		
@@ -213,6 +209,8 @@ public class TestApp {
 		*/
 		
 		
+		//retrieve some objects and test the method execution
+		//by passing parameters
 		
 		ObjectSet<Instance> result = DBManager.db.queryByExample(Instance.class);
 		
@@ -227,7 +225,7 @@ public class TestApp {
 		GenerateRequest genreqa = new GenerateRequest(genreqlist.get(4));
 
 		
-		genreq1.setErrorMessage("ERRORE NELLA REQUEST!!!!!!");
+		genreq1.setErrorMessage("ERROR IN THE REQUEST!!!!!!");
 		
 		//genreq3.setLanguage("en");
 		//genreq3.store();
@@ -309,48 +307,6 @@ public class TestApp {
 			DBManager.close();
 		}
 		
-		/*
-		try{
-		EmbeddedConfiguration config = Db4oEmbedded.newConfiguration();
-		//config.common().objectClass(Author.class).cascadeOnDelete(true);
-		db = Db4oEmbedded.openFile("test.db");
-		
-		
-		
-		
-		ObjectSet<TestClass> result = db.queryByExample(TestClass.class);
-		System.out.println(result.size());
-		
-		TestClass tc = result.get(0);
-		//System.out.println(result.get(0).name);
-		System.out.println(tc.getSum(20));
-		
-		TestClass tc2= new TestClass(8,2);
-		System.out.println(tc2.getSum(20));
-		}finally{
-			db.close();
-		}*/
-		
-		/*
-		myoodbms.SchemaManager scMgr= new myoodbms.SchemaManager();
-		scMgr.createSchema();
-		*/
-		
-		/*
-		try{
-		Parser.ParseFile(ReportDefinition.class);
-		}catch(Exception ex){
-			
-			String ale="ciao";
-		}*/
-		
-		/*
-		Method[] classMethods = Request.class.getDeclaredMethods();
-		
-		for(Method m: classMethods){
-			String ale="ciao";
-			ale="q";
-		}*/
 		
 	}
 

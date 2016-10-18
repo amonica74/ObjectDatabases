@@ -66,6 +66,7 @@ public class DynamicCollectionQbE<T extends BaseDBClass> implements Iterable<T> 
 		return it;
 	} 
 	
+	//NOT IMPLEMENTED
 	public Iterator<T> iterator(java.util.function.Predicate<T> pr) {
 		/*
 		Iterator<T> it = new Iterator<T>() {
@@ -112,6 +113,8 @@ public class DynamicCollectionQbE<T extends BaseDBClass> implements Iterable<T> 
 		
 	}
 	
+	
+	//NOT IMPLEMENTED
 	public DynamicCollection<T> Minus(DynamicCollection<T> dyntoAdd){
 		
 		/*

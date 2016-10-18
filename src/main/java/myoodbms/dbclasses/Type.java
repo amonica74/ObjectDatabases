@@ -6,7 +6,7 @@ import java.util.Set;
 import java.util.Collection;
 import java.util.ArrayList;
 
-
+//class used to save schema of classes
 public class Type {
 
 	public final String typename;
@@ -32,8 +32,7 @@ public class Type {
     	return new Instance(this);
     }
     
-    //a cosa serve??????
-    //metterlo che possa essere chiamato solo da instance (metter in stesso package e fare friend o senza niente)
+
     public void setMethods(HashMap<String, ArrayList<Method>> m){
     	
     	this.methods=m;
@@ -118,9 +117,8 @@ public class Type {
     		inherited = c;
     		//------ !!!! this.methods=getDeepCopy(c.getMethods());
     		//------ !!!!!this.attributes.putAll(c.getAttributes());
-    	//senno' non permessa ereditarieta multipla
     	}else{
-    		System.out.println("Multiple Inheritance not allowed!"); //fare ritornare una eccezione
+    		System.out.println("Multiple Inheritance not allowed!"); 
     	}
     	
     }

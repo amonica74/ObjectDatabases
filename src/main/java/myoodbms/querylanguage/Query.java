@@ -35,7 +35,6 @@ public class Query {
 		
 		ObjectSet<Instance> result = DBManager.db.queryByExample(Instance.class);
 				
-		//fare stessa cosa nel querybyexample sotto
 		List<Instance> ilist = result.stream().filter(p -> (
 				p.getTypeName().equals(classtoquery.getSimpleName())
 				|| (p.getType().inherited!=null && p.getType().inherited.typename.equals(classtoquery.getSimpleName()))
@@ -132,7 +131,8 @@ public <T> List<T> queryByExample(BaseDBClass toretrieve, OpType optype){
 			    			relationshipresult =relationshipresult || partialresult;
 			    		
 			    	}
-	    	  }	//attributes or relationships not size 0 - this happens when intersecting 2 collections with different values for same attribute (see QueryHelper, Intersect method)	    	
+	    	  }	//attributes or relationships not size 0 - this happens when intersecting 2 
+	    		//collections with different values for same attribute (see QueryHelper, Intersect method)	    	
 	    	}else
 	    		return false;
 	    	

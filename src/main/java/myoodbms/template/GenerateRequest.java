@@ -21,8 +21,8 @@ public class GenerateRequest extends Request{
 	
 	public boolean generateDocument(){
 		
-		//nel Type il riferimento all'oggetto, cioè in questo case repdef, viene sostituito 
-		//con il nome della relationship => in questo caso requestedReport.name
+		//nel Type the reference to the object, in this case repdef, is replaces
+		//with the name of the relationship => in this case requestedReport.name
 		System.out.println("I'm generating document for Report Definition " + repdef.name + " with the following parameters :");
 		
 		for (java.util.Map.Entry entry : parameterValues.entrySet()){

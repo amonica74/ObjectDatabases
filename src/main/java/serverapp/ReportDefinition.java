@@ -15,7 +15,7 @@ public class ReportDefinition extends BaseDBClass{
 	    	instance = new Instance(Schema.types.get(this.getClass().getSimpleName()));
 	}
 
-	//uso quando tiro fuori con una query
+	//used when retrieving the object with a query
 	public ReportDefinition(Instance instance){
 		
 		this.instance=instance;
