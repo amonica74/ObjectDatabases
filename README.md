@@ -100,5 +100,5 @@ These classes inherit from _myoodbms.dbclasses.BaseDBClass_ and wrap the functio
 
 + BeanShell (http://www.beanshell.org)
 + AST Parser of JDT Plugin for Eclipse
-+ db40 OODBMS
++ db4objects by Versant OODBMS (db4o)
 
