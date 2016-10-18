@@ -1,8 +1,8 @@
 # ObjectDatabases
-This a project for ObjectDatabases course (ETH, CAS in Computer Science, SS2016 term)
+This is a project for ObjectDatabases course (ETH, CAS in Computer Science, SS2016 term)
 
 ***
-********************* IMPORTANT NOTE  *****************<br/>
+IMPORTANT NOTE<br/>
 The code in this project is not optimized, so it can be sometimes redundant or not prticularly performant. The aim
 of the project was to propose an implementation of some OODBMS features and it is in any case not suitable, as it is, 
 for a production environment
@@ -10,7 +10,7 @@ for a production environment
 
 <h4>Content and goal of the project</h4>
 
-The goal oft he project is to create a Object Oriented Database Management System on the top of java by implementing the main 
+The goal of the project is to create a Object Oriented Database Management System on the top of java by implementing the main 
 functionalities that such a system must have.
 
 As a base for the persistence an already existing OODMBS (db4o) was used, but the main functionalities are implemented 
@@ -56,12 +56,12 @@ class looks for methods in the whole hierarchy, by retrieving the best match in 
 
  The query language follows the model proposed by the _QueryByExample_ mechanism of db4o, but at the same time it is implemented to overcome the limitations imposed by the standard. The idea is that the developer creates an object containing all the attribute values and related objects that he/she wants to search for and passes the object to the query mechanism.
 
-Example: Retrieving all the _GenerateRequest_ object whose filename attribute starts with NCTS substring.
+  Example: Retrieving all the _GenerateRequest_ object whose filename attribute starts with NCTS substring.
 
-    Query ql = new Query();
-    GenerateRequest gentoret= new GenerateRequest();
-    gentoret.setFilename(new StartsWith("NCTS"));
-    List<GenerateRequest> genlist = ql.queryByExample(gentoret);
+      Query ql = new Query();
+      GenerateRequest gentoret= new GenerateRequest();
+      gentoret.setFilename(new StartsWith("NCTS"));
+      List<GenerateRequest> genlist = ql.queryByExample(gentoret);
 
  
   The Query Language allows to:
@@ -85,21 +85,21 @@ The system supports Dynamic Collections based on QbE;  these collections are ins
 
 
 <h2>Packages List</h2>
-+_moodbms_ – contains the two classes DBManager and SchemaManager for the opening, close and configuration of the database and the management of the schema
- + _myoodbms.dbclasses_ – Contains base classes of the oodbms: Type, Instance, Method, Relationship, BaseDBClass, RelationType
-   +_myoodbms.dbutils_ – Contains helpers for the db operations
- + _myoodbms.querylanguage_  - Contains classes used to perform queries and dynamic collections. 
-+ _myoodbms.querylanguage.operators_ – Contains classes used to extend QBE mechanism of db4o. In order to provide more functionalities, you have simply to create new classes derived from ComparisonObject.
-+ _myoodbms.template_- Contains classes created by the developer, that are  used to generate the database schema.
++ _moodbms_ – contains the two classes DBManager and SchemaManager for the opening, close and configuration of the database and the management of the schema
++ _myoodbms.dbclasses_ – contains base classes of the oodbms: Type, Instance, Method, Relationship, BaseDBClass, RelationType
++ _myoodbms.dbutils_ – contains helpers for the db operations
++ _myoodbms.querylanguage_ -contains classes used to perform queries and dynamic collections. 
++ _myoodbms.querylanguage.operators_ – contains classes used to extend QueryByExample mechanism of db4o. In order to provide more functionalities, you have simply to create new classes derived from _ComparisonObject_.
++ _myoodbms.template_- contains classes created by the developer, that are  used to generate the database schema.
 + _myoodbms.utils_ –  General utils for theproject
-+_serverapp_ - Wrapper classes automatically generate from templates. 
-These classes inherit from myoodbms.dbclasses.BaseDBClass  and wrap the functions needed to provide persistence. These have to used by the developer.
-+_myoodbms.Test_ – contains classes to test the project. The main 2 classes are TestApp, that creates some objects, retrieves them, sets some attributes values and executes some methods, and TestQuery, that tests the query mechanism and contains several examples about the different possibilities offered by the QL of the system)
++ _serverapp_ - Wrapper classes automatically generate from templates. 
+These classes inherit from _myoodbms.dbclasses.BaseDBClass_ and wrap the functions needed to provide persistence. These have to used by the developer.
++ _myoodbms.Test_ – contains classes to test the project. The main 2 classes are _TestApp_, that creates some objects, retrieves them, sets some attributes values and executes some methods, and _TestQuery_, that tests the query mechanism and contains several examples about the different possibilities offered by the Query Language of the system)
 
 
 <h2>External Libraries</h2> 
 
- + beanshell
-+ eclipse plugin
- + db40 OODBMS
++ BeanShell
++ Eclipse plugin
++ db40 OODBMS
 
