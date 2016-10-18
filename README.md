@@ -2,7 +2,7 @@
 This is a project for ObjectDatabases course (ETH, CAS in Computer Science, SS2016 term)
 
 ***
-IMPORTANT NOTE<br/>
+**IMPORTANT NOTE**<br/>
 The code in this project is not optimized, so it can be sometimes redundant or not prticularly performant. The aim
 of the project was to propose an implementation of some OODBMS features and it is in any case not suitable, as it is, 
 for a production environment
